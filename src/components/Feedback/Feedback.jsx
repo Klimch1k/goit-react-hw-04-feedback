@@ -1,11 +1,13 @@
 
-import React, { Component } from 'react';
+import {useState} from 'react';
 import Statistics from 'components/Statistics/Statistics';
 import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 import Section from 'components/Section/Section';
 import Notification from 'components/Notification/Notification';
 
-class Feedback extends Component {
+export const Feedback = () => {
+  
+const [good, setGood] = useState(0)
   state = {
     good: 0,
     neutral: 0,
@@ -29,7 +31,7 @@ class Feedback extends Component {
     return totalFeedback === 0 ? 0 : Math.round((good / totalFeedback) * 100);
   };
 
-  render() {
+   {
     const totalFeedback = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
     return (
